@@ -4,7 +4,7 @@ source "https://rubygems.org"
 gem "jekyll", "~> 4.3.0"
 
 # Tema por defecto
-gem "minima"
+gem "midnight"
 
 # Plugins
 gem "jekyll-feed"
