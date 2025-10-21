@@ -3,6 +3,13 @@ GEM
   specs:
     addressable (2.8.7)
       public_suffix (>= 2.0.2, < 7.0)
+    beautiful-jekyll-theme (6.0.1)
+      jekyll (>= 3.9.3)
+      jekyll-paginate (~> 1.1)
+      jekyll-sitemap (~> 1.4)
+      kramdown (~> 2.3.2)
+      kramdown-parser-gfm (~> 1.1)
+      webrick (~> 1.8)
     bigdecimal (3.3.1)
     chronic (0.10.2)
     colorator (1.1.0)
@@ -71,14 +78,15 @@ GEM
       webrick (~> 1.7)
     jekyll-feed (0.17.0)
       jekyll (>= 3.7, < 5.0)
+    jekyll-paginate (1.1.0)
     jekyll-sass-converter (3.1.0)
       sass-embedded (~> 1.75)
     jekyll-sitemap (1.4.0)
       jekyll (>= 3.7, < 5.0)
     jekyll-watch (2.2.1)
       listen (~> 3.0)
-    kramdown (2.5.1)
-      rexml (>= 3.3.9)
+    kramdown (2.3.2)
+      rexml
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
     liquid (4.0.4)
@@ -158,6 +166,7 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
+  beautiful-jekyll-theme
   jekyll (~> 4.3.0)
   jekyll-feed
   jekyll-sitemap

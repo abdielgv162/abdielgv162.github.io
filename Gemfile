@@ -5,6 +5,8 @@ gem "jekyll", "~> 4.3.0"
 
 # Tema por defecto
 gem "midnight"
+gem "beautiful-jekyll-theme"
+
 
 # Plugins
 gem "jekyll-feed"
