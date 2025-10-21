@@ -6,7 +6,7 @@ url: "https://abdielgv162.github.io"  # Tu dominio en GitHub Pages
 
 # Configuración de build
 markdown: kramdown  # Motor para convertir .md a HTML
-theme: minima       # Tema por defecto (viene con Jekyll)
+theme: midnight 
 
 # Plugins básicos (los que permite GitHub Pages)
 plugins:
