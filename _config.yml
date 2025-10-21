@@ -1,0 +1,17 @@
+# Configuración básica
+title: "Biblioteca Digital - Abdiel"
+description: "Documentación y portafolio personal"
+baseurl: ""  # Para subdirectorios, vacío para dominio raíz
+url: "https://abdielgv162.github.io"  # Tu dominio en GitHub Pages
+
+# Configuración de build
+markdown: kramdown  # Motor para convertir .md a HTML
+theme: minima       # Tema por defecto (viene con Jekyll)
+
+# Plugins básicos (los que permite GitHub Pages)
+plugins:
+  - jekyll-feed    # Genera feed RSS automáticamente
+  - jekyll-sitemap # Genera sitemap.xml para SEO
+
+# Información personal
+github_username: abdielgv162
