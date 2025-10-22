@@ -10,3 +10,4 @@ title: "Inicio"
 - 🎯 [Blog](/blog/)
 - 🔧 [Tecnologías](/tech/)
 - 👤 [Acerca de mí](/about/)
+- fdf
