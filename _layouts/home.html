@@ -1,13 +1,37 @@
----
-layout: default
----
-<div class="home">
-    <section class="hero">
-        <h1>Bienvenido a {{ site.title }}</h1>
-        <p class="subtitle">{{ site.description }}</p>
-    </section>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{{ page.title }} - {{ site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/dark-theme.css' | relative_url }}">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1 class="site-title">
+                <a href="{{ '/' | relative_url }}">{{ site.title }}</a>
+            </h1>
+            <nav class="site-nav">
+                <a href="{{ '/' | relative_url }}">Inicio</a>
+                <a href="{{ '/docs/' | relative_url }}">Documentación</a>
+                <a href="{{ '/blog/' | relative_url }}">Blog</a>
+                <a href="{{ '/about/' | relative_url }}">Acerca</a>
+            </nav>
+        </div>
+    </header>
 
-    <section class="content">
-        {{ content }}
-    </section>
-</div>
+    <main class="container">
+        <div class="home">
+            <section class="hero">
+                <h1>Bienvenido a <br>{{ site.title }}</h1>
+                <p class="subtitle">{{ site.description }}</p>
+                <p class="subtitle">Creado por {{ site.author.name }}</p>
+            </section>
+
+            <section class="content">
+                {{ content }}
+            </section>
+        </div>
+    </main>
+</body>
+</html>

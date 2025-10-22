@@ -1,7 +1,6 @@
 ---
-layout: page
+layout: home
 title: "Acerca de Mí"
-permalink: /about/
 ---
 # Hola, soy Abdiel
 

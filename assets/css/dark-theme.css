@@ -363,3 +363,51 @@ tr:nth-child(even) {
     font-size: 1rem;
   }
 }
+
+.docs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.doc-card {
+  background: var(--code-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.doc-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary-color);
+  box-shadow: 0 8px 24px rgba(88, 166, 255, 0.1);
+}
+
+.doc-card h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.3rem;
+}
+
+.doc-card h3 a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.doc-card h3 a:hover {
+  color: var(--primary-color);
+}
+
+.doc-card p {
+  color: var(--muted-text);
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.doc-meta {
+  font-size: 0.8rem;
+  color: var(--muted-text);
+  border-top: 1px solid var(--border-color);
+  padding-top: 1rem;
+}

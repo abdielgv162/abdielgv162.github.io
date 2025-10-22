@@ -1,10 +1,19 @@
-title: "Biblioteca Digital - Abdiel"
+title: "Mi biblioteca digital"
 description: "Documentación y portafolio personal"
 baseurl: ""
 url: "https://abdielgv162.github.io"
 
+# Información personal
+author:
+  name: "Abdiel Guerrero V."
+  email: "jabdi16@outlook.es"
+  twitter: ""
+  github: "github.com/abdielgv162/"
+
+
 # Tema base
 #theme: jekyll-theme-cayman
+
 
 # Configuración de sintaxis
 markdown: kramdown
