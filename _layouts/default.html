@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} - {{ site.title }}</title>
+    
+    <!-- Tema oscuro estilo Medium -->
+    <link rel="stylesheet" href="{{ '/assets/css/dark-theme.scss' | relative_url }}">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1 class="site-title">
+                <a href="{{ '/' | relative_url }}">{{ site.title }}</a>
+            </h1>
+            <nav class="site-nav">
+                <a href="{{ '/' | relative_url }}" {% if page.url == "/" %}class="active"{% endif %}>Inicio</a>
+                <a href="{{ '/about/' | relative_url }}" {% if page.url == "/about/" %}class="active"{% endif %}>Acerca</a>
+                <a href="{{ '/blog/' | relative_url }}" {% if page.url == "/blog/" %}class="active"{% endif %}>Blog</a>
+                <a href="{{ '/portafolio/' | relative_url }}" {% if page.url == "/portafolio/" %}class="active"{% endif %}>Portafolio</a>
+                <a href="{{ '/docs/' | relative_url }}" {% if page.url == "/docs/" %}class="active"{% endif %}>Docs</a>
+                <a href="{{ '/tech/' | relative_url }}" {% if page.url == "/tech/" %}class="active"{% endif %}>Tech</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        {{ content }}
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }} - Hecho con Jekyll</p>
+        </div>
+    </footer>
+
+    <!-- Script mejorado para copiar código -->
+    <script src="{{ '/assets/js/copy-code.js' | relative_url }}"></script>
+</body>
+</html>

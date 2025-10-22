@@ -3,21 +3,31 @@ description: "Documentación y portafolio personal"
 baseurl: ""
 url: "https://abdielgv162.github.io"
 
-# Usar el tema que YA VIENE con Jekyll
-theme: minima
+# Tema base
+#theme: jekyll-theme-cayman
 
-# Información personal
-github_username: abdielgv162
-email: "tu-email@ejemplo.com"  # Opcional
-
-# Configuración Jekyll
+# Configuración de sintaxis
 markdown: kramdown
-permalink: pretty
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: 'highlight'
+    default_lang: 'text'
 
-# Plugins que ya vienen incluidos
+# Sass configuration
+sass:
+  sass_dir: assets/css
+
+# Incluir CSS personalizado
+include:
+  - assets/css
+
+# Plugins
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
-# Configuración adicional
-author: "Abdiel"
+# Información personal
+github_username: abdielgv162

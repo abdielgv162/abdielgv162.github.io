@@ -10,4 +10,9 @@ title: "Inicio"
 - 🎯 [Blog](/blog/)
 - 🔧 [Tecnologías](/tech/)
 - 👤 [Acerca de mí](/about/)
-- fdf
+
+```python
+def hola_mundo():
+    print("¡Hola mundo!")
+    return True
+```
