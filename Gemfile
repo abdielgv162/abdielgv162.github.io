@@ -1,18 +1,9 @@
 source "https://rubygems.org"
 
-# Jekyll versión compatible con GitHub Pages
+# Jekyll 4.x
 gem "jekyll", "~> 4.3.0"
 
-# Tema por defecto
-gem "midnight"
-gem "beautiful-jekyll-theme"
-
-
-# Plugins
-gem "jekyll-feed"
-gem "jekyll-sitemap"
-
-# Grupo solo para desarrollo local
+# Para desarrollo local
 group :development do
   gem "webrick"
 end

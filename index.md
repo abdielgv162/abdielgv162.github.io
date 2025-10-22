@@ -1,8 +1,12 @@
 ---
 layout: home
-title: "Mi Cerebro Digital"
+title: "Inicio"
 ---
+# ¡Bienvenido a mi Biblioteca Digital!
 
-# ¡Hola! 
-
-Bienvenido a mi sitio. Aquí documentaré mis aprendizajes.
+## Contenido disponible:
+- 📚 [Documentación](/docs/)
+- 💼 [Portafolio](/portafolio/)  
+- 🎯 [Blog](/blog/)
+- 🔧 [Tecnologías](/tech/)
+- 👤 [Acerca de mí](/about/)

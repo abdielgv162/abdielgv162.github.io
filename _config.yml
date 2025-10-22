@@ -1,17 +1,23 @@
-# Configuración básica
 title: "Biblioteca Digital - Abdiel"
 description: "Documentación y portafolio personal"
-baseurl: ""  # Para subdirectorios, vacío para dominio raíz
-url: "https://abdielgv162.github.io"  # Tu dominio en GitHub Pages
+baseurl: ""
+url: "https://abdielgv162.github.io"
 
-# Configuración de build
-markdown: kramdown  # Motor para convertir .md a HTML
-theme: beautiful-jekyll-theme
-
-# Plugins básicos (los que permite GitHub Pages)
-plugins:
-  - jekyll-feed    # Genera feed RSS automáticamente
-  - jekyll-sitemap # Genera sitemap.xml para SEO
+# Usar el tema que YA VIENE con Jekyll
+theme: minima
 
 # Información personal
 github_username: abdielgv162
+email: "tu-email@ejemplo.com"  # Opcional
+
+# Configuración Jekyll
+markdown: kramdown
+permalink: pretty
+
+# Plugins que ya vienen incluidos
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Configuración adicional
+author: "Abdiel"
