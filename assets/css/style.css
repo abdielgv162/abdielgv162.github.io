@@ -64,6 +64,36 @@ body {
   border: 1px solid #333;
 }
 
+.site-header nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  list-style: none;
+  padding: 1rem;
+  margin: 0;
+}
+
+.site-header nav a {
+  display: inline-block;
+  padding: 0.5rem 0.9rem;
+  font-size: 0.9rem;
+  border-radius: 10px;
+  background: #1a1a1a;
+  color: #e6e6e6;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.site-header nav a:hover {
+  background: #222;
+}
+
+.site-header nav a.active {
+  background: #2a2a2a;
+  font-weight: 600;
+}
+
 
 /* =========================================
    HOME
@@ -244,6 +274,36 @@ h1, h2, h3, h4 {
     font-size: 1.2rem;
   }
 }
+
+@media (max-width: 768px) {
+  .site-header nav ul {
+    flex-wrap: nowrap;            /* evita que bajen */
+    overflow-x: auto;             /* scroll horizontal */
+    justify-content: flex-start;  /* mejor UX móvil */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .site-header nav li {
+    flex-shrink: 0;               /* evita que se aplasten */
+  }
+
+  .site-header nav a {
+    white-space: nowrap;          /* evita cortes de texto */
+  }
+
+  /* Opcional: ocultar scrollbar */
+  .site-header nav ul::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-header nav a {
+    font-size: 0.85rem;
+    padding: 0.45rem 0.75rem;
+  }
+}
+
 
 /* =========================================
    INLINE CODE
