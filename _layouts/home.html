@@ -12,12 +12,25 @@ layout: default
   <section class="posts-grid">
     {% for page in site.pages %}
       {% if page.layout == "note" %}
+
       <article class="post-card">
-        <a href="{{ page.url | relative_url }}">
-          <h2>{{ page.title }}</h2>
-          <p>{{ page.excerpt | strip_html | truncate: 140 }}</p>
-        </a>
-      </article>
+  <a href="{{ page.url | relative_url }}">
+
+    {% if page.cover %}
+      <div class="card-cover"
+           style="background-image: url('{{ page.cover | relative_url }}');">
+      </div>
+    {% endif %}
+
+    <div class="card-content">
+      <h2>{{ page.title }}</h2>
+      <p>{{ page.excerpt | strip_html | truncate: 140 }}</p>
+    </div>
+
+  </a>
+</article>
+
+
       {% endif %}
     {% endfor %}
   </section>

@@ -51,7 +51,15 @@
   </nav>
 </header>
 
+
 <main class="site-content">
+
+  {% if page.cover %}
+  <div class="note-cover">
+    <img src="{{ page.cover | relative_url }}" alt="{{ page.title }}">
+  </div>
+{% endif %}
+
   {{ content }}
 </main>
 

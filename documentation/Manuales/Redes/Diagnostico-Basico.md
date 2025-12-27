@@ -3,6 +3,7 @@ layout: note
 title: Diagnóstico básico de red 🌐
 section: documentation
 category: redes
+cover: /assets/images/notes/redes/diagnostico-red/cover.webp
 ---
 
 

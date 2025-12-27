@@ -24,11 +24,22 @@ layout: default
   <section class="posts-grid">
     {% for p in section_pages %}
       <article class="post-card">
-        <a href="{{ p.url | relative_url }}">
-          <h2>{{ p.title }}</h2>
-          <p>{{ p.excerpt | strip_html | truncate: 140 }}</p>
-        </a>
-      </article>
+  <a href="{{ p.url | relative_url }}">
+
+    {% if p.cover %}
+      <div class="card-cover"
+           style="background-image: url('{{ p.cover | relative_url }}');">
+      </div>
+    {% endif %}
+
+    <div class="card-content">
+      <h2>{{ p.title }}</h2>
+      <p>{{ p.excerpt | strip_html | truncate: 140 }}</p>
+    </div>
+
+  </a>
+</article>
+
     {% endfor %}
   </section>
   {% else %}
