@@ -9,27 +9,24 @@
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 
   <!-- Prism -->
-   <!-- Prism theme -->
   <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
-
-  <!-- Prism core -->
   <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
 
-  <!-- Toolbar (OBLIGATORIO) -->
+  <!-- Toolbar -->
   <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.css" rel="stylesheet">
   <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
 
-  <!-- Copy button -->
+  <!-- Copy -->
   <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
 
-<!-- KaTeX -->
+  <!-- KaTeX -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/contrib/auto-render.min.js"
-    onload="renderMathInElement(document.body, {
-      delimiters: [
-        {left: '$$', right: '$$', display: true},
-        {left: '$', right: '$', display: false}
+    onload="renderMathInElement(document.body,{
+      delimiters:[
+        {left:'$$',right:'$$',display:true},
+        {left:'$',right:'$',display:false}
       ]
     });"></script>
 </head>
@@ -42,29 +39,29 @@
       {% for item in site.data.navigation %}
         <li>
           <a href="{{ item.url | relative_url }}"
-   {% if page.url contains item.url %}class="active"{% endif %}>
-  {{ item.title }}
-</a>
+             {% if page.url == item.url %}class="active"{% endif %}>
+            {{ item.title }}
+          </a>
         </li>
       {% endfor %}
     </ul>
   </nav>
 </header>
 
-
 <main class="site-content">
 
-  {% if page.cover %}
-  <div class="note-cover">
-    <img src="{{ page.cover | relative_url }}" alt="{{ page.title }}">
-  </div>
-{% endif %}
+  {% if page.layout == "note" and page.cover %}
+    <div class="note-cover">
+      <img src="{{ page.cover | relative_url }}" alt="{{ page.title }}">
+    </div>
+  {% endif %}
 
   {{ content }}
+
 </main>
 
 <footer class="site-footer">
-  <p>Abdiel Guerrero V. - {{ site.title }} - {{ site.time | date: "%Y" }} </p>
+  <p>Abdiel Guerrero V. - {{ site.title }} - {{ site.time | date: "%Y" }}</p>
 </footer>
 
 <script src="{{ '/assets/js/copy.js' | relative_url }}"></script>

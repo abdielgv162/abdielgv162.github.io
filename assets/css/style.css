@@ -542,3 +542,29 @@ hr {
 .card-content h2 {
   margin-top: 0;
 }
+
+/* =========================================
+   Mejorando cartas del blog
+   ========================================= */
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.blog-card {
+  padding: 1.5rem;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.03);
+  transition: transform .2s ease, background .2s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255,255,255,0.06);
+}
+
+.blog-card h2 {
+  margin-bottom: .5rem;
+}

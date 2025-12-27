@@ -5,45 +5,24 @@ layout: default
 <div class="section-wrapper">
 
   <header class="section-header">
-    <h1 class="section-title">{{ page.title }}</h1>
-
+    <h1>{{ page.title }}</h1>
     {% if page.description %}
-      <p class="section-description">{{ page.description }}</p>
+      <p>{{ page.description }}</p>
     {% endif %}
   </header>
 
-  {% if content %}
-  <section class="section-content">
-    {{ content }}
-  </section>
-  {% endif %}
+  {% assign docs = site.pages
+     | where: "section", "documentation"
+     | where: "layout", "note" %}
 
-  {% assign section_pages = site.pages | where: "section", page.section | where: "layout", "note" %}
-
-  {% if section_pages.size > 0 %}
-  <section class="posts-grid">
-    {% for p in section_pages %}
-      <article class="post-card">
-  <a href="{{ p.url | relative_url }}">
-
-    {% if p.cover %}
-      <div class="card-cover"
-           style="background-image: url('{{ p.cover | relative_url }}');">
-      </div>
-    {% endif %}
-
-    <div class="card-content">
-      <h2>{{ p.title }}</h2>
-      <p>{{ p.excerpt | strip_html | truncate: 140 }}</p>
-    </div>
-
-  </a>
-</article>
-
-    {% endfor %}
-  </section>
+  {% if docs.size > 0 %}
+    <section class="posts-grid">
+      {% for p in docs %}
+        {% include card.html page=p %}
+      {% endfor %}
+    </section>
   {% else %}
-    <p style="opacity:.6">No hay notas aún en esta sección.</p>
+    <p style="opacity:.6">No hay documentación aún.</p>
   {% endif %}
 
 </div>

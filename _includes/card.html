@@ -1,0 +1,15 @@
+<article class="post-card">
+  <a href="{{ include.page.url }}">
+
+    {% if include.page.cover %}
+      <div class="card-cover"
+           style="background-image:url('{{ include.page.cover }}')"></div>
+    {% endif %}
+
+    <div class="card-content">
+      <h2>{{ include.page.title }}</h2>
+      <p>{{ include.page.excerpt | strip_html | truncate: 140 }}</p>
+    </div>
+
+  </a>
+</article>

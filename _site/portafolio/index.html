@@ -4,32 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Inicio - Mi Blog</title>
+  <title>Portafolio - Mi Blog</title>
 
   <link rel="stylesheet" href="/assets/css/style.css">
 
   <!-- Prism -->
-   <!-- Prism theme -->
   <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet">
-
-  <!-- Prism core -->
   <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
 
-  <!-- Toolbar (OBLIGATORIO) -->
+  <!-- Toolbar -->
   <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.css" rel="stylesheet">
   <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/toolbar/prism-toolbar.min.js"></script>
 
-  <!-- Copy button -->
+  <!-- Copy -->
   <script defer src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/plugins/copy-to-clipboard/prism-copy-to-clipboard.min.js"></script>
 
-<!-- KaTeX -->
+  <!-- KaTeX -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.css">
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.js"></script>
   <script defer src="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/contrib/auto-render.min.js"
-    onload="renderMathInElement(document.body, {
-      delimiters: [
-        {left: '$$', right: '$$', display: true},
-        {left: '$', right: '$', display: false}
+    onload="renderMathInElement(document.body,{
+      delimiters:[
+        {left:'$$',right:'$$',display:true},
+        {left:'$',right:'$',display:false}
       ]
     });"></script>
 </head>
@@ -42,79 +39,69 @@
       
         <li>
           <a href="/"
-   class="active">
-  Inicio
-</a>
+             >
+            Inicio
+          </a>
         </li>
       
         <li>
           <a href="/documentation/"
-   >
-  Documentación
-</a>
+             >
+            Documentación
+          </a>
         </li>
       
         <li>
           <a href="/blog/"
-   >
-  Blog
-</a>
+             >
+            Blog
+          </a>
         </li>
       
         <li>
           <a href="/portafolio/"
-   class="active">
-  Portafolio
-</a>
+             class="active">
+            Portafolio
+          </a>
         </li>
       
         <li>
           <a href="/about/"
-   >
-  Sobre mí
-</a>
+             >
+            Sobre mí
+          </a>
         </li>
       
     </ul>
   </nav>
 </header>
 
-
 <main class="site-content">
 
   
 
-  <div class="section-wrapper">
+  <article class="post-content">
+  <section class="portfolio">
 
-  <header class="section-header">
-    <h1 class="section-title">Inicio</h1>
+  <article class="project">
+    <h2>Proyecto 1</h2>
+    <p>Descripción del proyecto.</p>
+  </article>
 
-    
-  </header>
+  <article class="project">
+    <h2>Proyecto 2</h2>
+    <p>Descripción del proyecto.</p>
+  </article>
 
-  
-  <section class="section-content">
-    <p>dfsdf
-sdf
-sd
-f
-sdasd</p>
+</section>
 
-  </section>
-  
+</article>
 
-  
-
-  
-    <p style="opacity:.6">No hay notas aún en esta sección.</p>
-  
-
-</div>
 
 </main>
 
 <footer class="site-footer">
-  <p>Abdiel Guerrero V. - Mi Blog - 2025 </p>
+  <p>Abdiel Guerrero V. - Mi Blog - 2025</p>
 </footer>
 
 <script src="/assets/js/copy.js"></script>

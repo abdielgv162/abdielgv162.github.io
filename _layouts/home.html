@@ -9,31 +9,18 @@ layout: default
     <p>{{ site.description }}</p>
   </section>
 
-  <section class="posts-grid">
-    {% for page in site.pages %}
-      {% if page.layout == "note" %}
+  {% assign recent_notes = site.pages
+     | where: "section", "documentation"
+     | where: "layout", "note"
+     | limit: 2 %}
 
-      <article class="post-card">
-  <a href="{{ page.url | relative_url }}">
-
-    {% if page.cover %}
-      <div class="card-cover"
-           style="background-image: url('{{ page.cover | relative_url }}');">
-      </div>
-    {% endif %}
-
-    <div class="card-content">
-      <h2>{{ page.title }}</h2>
-      <p>{{ page.excerpt | strip_html | truncate: 140 }}</p>
-    </div>
-
-  </a>
-</article>
-
-
-      {% endif %}
-    {% endfor %}
-  </section>
+  {% if recent_notes.size > 0 %}
+    <section class="posts-grid">
+      {% for page in recent_notes %}
+        {% include card.html page=page %}
+      {% endfor %}
+    </section>
+  {% endif %}
 
   <section class="home-content">
     {{ content }}

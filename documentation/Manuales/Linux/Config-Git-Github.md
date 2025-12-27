@@ -1,8 +1,8 @@
 ---
 layout: note
-title: Configuración de Git y GitHub en Linux
 section: documentation
 category: Linux
+title: Configuración de Git y GitHub en Linux
 cover: /assets/images/notes/linux/GIT-Github/cover.webp
 ---
 

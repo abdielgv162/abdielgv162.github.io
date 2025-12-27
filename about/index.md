@@ -1,6 +1,6 @@
 ---
-layout: sections
-title: Blog
+layout: page
+title: Sobre mí
 ---
 
-fdsfd
+About
