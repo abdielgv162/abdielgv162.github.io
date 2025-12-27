@@ -18,8 +18,8 @@ Este comando nos muestra la configuración de red TCP/IP de la computadora, most
 
 ```cmd 
 
-    ipconfig
-    ipconfig /all
+ipconfig
+ipconfig /all
 ```
 
 
@@ -35,7 +35,6 @@ Aqui debemos de revisar que lo siguiente sea correcto:
 
 En esta etapa, los principales errores se deben a una IP estática mal configurada, un adaptador virtual tomando prioridad, VPN encendida, VLAN erronea, etc.
 
----
 
 ### 1.2 Probar Enlace Local
 
@@ -43,9 +42,9 @@ La puerta de enlace nos permite establecer comunicación entre dos redes diferen
 
 Hacer un ping a la puerta de enlace o router, nos permite diagnósticar la conectividad básica entre nuestro dispositivo y la red local. De manera que podemos confirmar si el router está activo y respondiendo, además de que podemos obtener una medida del tiempo de respuesta o pérdida de paquetes.
 
-```bash
+```cmd
 
-    ping <IP_gateway>
+ping <IP_gateway>
 ```
 **Si no responde, puede deberse a problemas del cable/wifi, VLAN incorrecta, firewall, gategay caído, mala configuración del adaptador de red.**
 
@@ -58,7 +57,7 @@ Para continuar con la revisión, podemos probar la pila de red TCP/IP. Podemos u
 Esto nos permite validar el stack TCP/IP del sistema operativo y la comunicación interna del kernel de red.
 
 
-```bash
+```cmd
 
 ping 127.0.0.1
 
@@ -79,7 +78,7 @@ Esto nos permite verificar la resolución de nombres, es decir, si se están con
 
 Podemos realizar la siguiente prueba, en donde tendría que resolver el dominio google.com por su IP correspondiente.
 
-```bash
+```cmd
 
 ping google.com
 ```
@@ -87,14 +86,14 @@ ping google.com
 
 O también podemos usar la herramienta nslookup:
 
-```bash
+```cmd
 
 nslookup google.com
 ```
 
 incluso, podemos forzar a que resuelva el nombre usando un DNS específico, por ejemplo:
 
-```bash
+```cmd
 
 nslookup google.com 192.168.1.X
 ```
@@ -103,11 +102,12 @@ Esto es útil cuando sí tenemos internet, pero no nos carga un sitio o cuando p
 
  También resulta útil para diagnósticar cuando presentamos lentitud al abrir páginas.
 
+
 ### 3.1 Borrar caché DNS
 
 Podemos visualizar y limpiar el caché DNS con los siguientes comandos. Útil cuando un sitio cambió de IP o hay errores de intermitencia:
 
-```bash
+```cmd
 
 # Mostrar
 ipconfig /displaydns
@@ -125,13 +125,14 @@ Una traza de red es una herramienta de diagnóstico que nos muestra el “camino
 
 ```cmd
 
-	tracert google.com 
-	tracert 192.168.X.X
+tracert google.com 
+tracert 192.168.X.X
 ```
 
 En la salida veremos algo similar a esto:
 
-```jsx
+```cmd
+
  1  192.168.1.1     1 ms   1 ms   1 ms
  2  10.20.0.1       5 ms   6 ms   5 ms
  3  200.33.xx.1    15 ms  14 ms  16 ms
@@ -146,14 +147,18 @@ Las trazas nos permiten detectar en que parte presentamos un problema de comunic
 
 Si hay fallas en los saltos iniciales, puede indicar problemas con la red local o gateway. En saltos intermedios, podría indicar problemas con firewall/WAN. Y en saltos finales con latencia alta, podría indica problemas de enlace o congestión.
 
-### Latencia estimada
+
+### 4.1 Pathping
+
+Esta es una opción más completa que nos muestra la pérdida de paquetes por salto y estadísticas.
+
+```cmd
+
+pathping oracle-servidor.midominio.local
+```
 
 
-| Tipo | Latencia Esperada |
-| --- | --- |
-| LAN | < 1ms |
-| ISP Local | 5 - 20 ms |
-| Conexiones internacionales | 30 - 150 ms |
+### 4.2 Latencia estimada
 
 
 <div class="table-wrapper">
@@ -183,154 +188,94 @@ Si hay fallas en los saltos iniciales, puede indicar problemas con la red local 
 
 ---
 
-# Probar conectividad por un puerto
+## 5. Probar conectividad por un puerto
 
-Este comando de PowerShell nos permite realizar un diagnóstico de conectividad en equipos con SO Windows. A diferencia de ping o tracert, aqui podemos validar los DNS, ruta, puertos TCP específicos y el origen de la falla. Haciendo una sola ejecución.
+Este comando de PowerShell nos permite realizar un diagnóstico de conectividad. A diferencia de ping o tracert, aqui podemos validar los DNS, ruta, puertos TCP específicos y el origen de la falla. Haciendo una sola ejecución.
 
-```bash
-# Resolución de nombre 
-# Consulta DNS y obtiene IP
-Test-NetConnection google.com
+```powershell
 
-# Prueba de puerto
-# Permite validar si hay un handshake TCP
-Test-NetConnection google.com -Port 443
+Test-NetConnection IP -Port PUERTO
 ```
 
 Sintaxis del comando
 
-```jsx
+```powershell
+
 Test-NetConnection <host> [-Port <puerto>] [-InformationLevel <nivel>]
 ```
 
-Y nos devuelve una salida similar a lo siguiente:
+Si obtenemos una salida True, nuestra red y firewall están OK. En caso contrario, podría haber puertos bloqueados o servicios caídos.
+
+
+### 5.1 Obtener vista detallada
+
 
 ```powershell
-# Identificador del equipo
-ComputerName     : servidor.local
 
-# IP real utilizada
-RemoteAddress    : 192.168.10.20
-
-# Puerto utilizado
-RemotePort       : 445
-
-# Indica por donde salió el tráfico
-InterfaceAlias   : Ethernet
-
-# IP origen
-SourceAddress    : 192.168.10.50
-
-# Puerto accesible o bloqueo del servicio.
-TcpTestSucceeded : True / False
-```
-
-## Obtener vista detallada
-
- 
-
-```powershell
 Test-NetConnection servidor -Port 443 -InformationLevel Detailed
 ```
 
-## DNS o red
 
- 
-
-```powershell
-Test-NetConnection dominio.com
-Test-NetConnection IP
-```
-
-## Validar servicios empresariales
-
- 
+### 5.2 Probar múltiples puertos
 
 ```powershell
-Test-NetConnection dc01 -Port 389   # LDAP
-Test-NetConnection dc01 -Port 445   # SMB
-Test-NetConnection dc01 -Port 88    # Kerberos
 
+1521,443,80,3389 | % {
+  Test-NetConnection oracle-servidor.midominio.local -Port $_ -WarningAction SilentlyContinue
+}
 ```
 
 ---
 
 
-# Limpiar y renovar configuración (útil en DHCP)
+## 6. Limpiar y renovar configuración (útil en DHCP)
 
 ```bash
+
 ipconfig /release
 ipconfig /renew
 ipconfig /flushdns
 ```
 
-1. `/releas`e : “Libera” la IP que tiene actualmente el equipo, dejándolo sin IP. Esto hace que el servidor DHCP vea la IP como disponible y la NIC del equipo queda sin configuración de IP.
+1. `/release` : “Libera” la IP que tiene actualmente el equipo, dejándolo sin IP. Esto hace que el servidor DHCP vea la IP como disponible y la NIC del equipo queda sin configuración de IP.
 Es muy útil en casos de IP duplicada o cuando se presentan errores por cambio de VLAN.
 2. `/renew` : Solicita una nueva IP al servidor DHCP. Útil despues de un /release , pues necesitamos que se asigne una IP.
 3. `/flushdns` : Borra el caché DNS local, sin cambiar IP ni Puerta de Enlace. Elimina las entradas DNS cahceadas, útil cuando un dominio cambia de IP o hay problemas de intermitencia con sitios web.
 
 ---
 
-# Ver conexiones activas y puertos
-
-```bash
-netstat -ano
-netstat -an | find "ESTABLISHED"
-```
-
-Asociar PID
-
-```bash
-tasklist | find "<PID>"
-```
-
----
-
-# Mostrar interfaces
-
-Esto nos permite listar las interfaces de nuestro dispositivo y su estado actual.
-
-```bash
-netsh interface show interface
-
-```
-
----
-
-# Caché ARP
+## 7. Caché ARP
 
 ARP permite que una IP se convierta en una MAC dentro de la red local, permitiendo la comunicación en LAN.
 
 Es decir, en la comunicación le indica que MAC address está relacionada a determinada IP para que pueda “responder”:
 
 ```powershell
+
 192.168.1.1 → 00-1A-2B-3C-4D-5E
 ```
 
-## Visualizar caché ARP
+### 7.1 Visualizar caché ARP
 
 Nos muestra IP con su MAC asociada y el tipo, ya se dinámica o estática.
 
 ```bash
+
 arp -a
 ```
 
-## Limpiar caché ARP
+### 7.2 Limpiar caché ARP
 
  Esto fuerza a redescubrir las MACs, corrigiendo IPs duplicadas, cambios en el equipo, switches reemplazados o ARP corrupto.
 
 ```powershell
+
 arp -d *
 ```
 
-## IP y gateway correcto, pero no navega
+---
 
- Podemos corroborar si funcionó al limpiar el caché arp y ejecutar el segundo ping
-
- ---
-
-
-# ewDiagnóstico rápido (Resumen)
+## Diagnóstico rápido (Resumen)
 
 ```cmd 
 
@@ -346,3 +291,5 @@ arp -d *
 
     Test-NetConnection
 ```
+
+---

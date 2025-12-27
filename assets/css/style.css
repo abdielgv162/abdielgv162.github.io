@@ -163,35 +163,6 @@ h1, h2, h3, h4 {
 
 
 /* =========================================
-   CODE BLOCKS
-   ========================================= */
-
-pre,
-code {
-  background: #1a1a1a;
-  padding: 0.7rem;
-  border-radius: 6px;
-  font-family: "JetBrains Mono", monospace;
-  overflow-x: auto;
-}
-
-pre {
-  margin: 1.5rem 0;
-}
-
-pre[class*="language-"] {
-  border-radius: 10px;
-  padding: 1rem;
-  background: #1e1e1e;
-  border: 1px solid #333;
-}
-
-code[class*="language-"] {
-  font-size: 0.9rem;
-}
-
-
-/* =========================================
    IMAGES
    ========================================= */
 
@@ -275,29 +246,52 @@ code[class*="language-"] {
 }
 
 /* =========================================
-   CODE BLOCKS – estilo ChatGPT
+   INLINE CODE
    ========================================= */
 
-pre[class*="language-"] {
-  position: relative;
-  background: #0f0f0f;
-  border-radius: 10px;
-  padding: 1.25rem 1.25rem 1.25rem 1.25rem;
+code {
+  background: #3a2342e9;
+  color: #f3f3f3;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.85rem;
+}
+
+
+/* =========================================
+   CODE BLOCKS
+   ========================================= */
+
+pre {
   margin: 2rem 0;
+}
+
+pre[class*="language-"],
+pre:has(code[class*="language-"]) {
+  position: relative;
+  background: #331c3bbb;
+  border-radius: 10px;
+  padding: 1.25rem;
   border: 1px solid #1f1f1f;
   overflow: auto;
 }
 
-/* Código */
+/* Código dentro del bloque */
 pre code {
   background: none;
-  color: #e6e6e6;
+  color: #cacaca;
   font-family: "JetBrains Mono", "Fira Code", monospace;
   font-size: 0.9rem;
   line-height: 1.6;
+  display: block;
 }
 
-/* Botón copiar (Prism plugin) */
+
+/* =========================================
+   COPY BUTTON (Prism)
+   ========================================= */
+
 div.code-toolbar > .toolbar {
   position: absolute;
   top: 10px;
@@ -305,38 +299,9 @@ div.code-toolbar > .toolbar {
   opacity: 1;
 }
 
-/* =========================================
-   CODE BADGE (lenguaje)
-   ========================================= */
-
-pre[class*="language-"]::before {
-  content: attr(class);
-  position: absolute;
-  top: 8px;
-  left: 10px;
-  font-size: 0.7rem;
-  padding: 2px 8px;
-  border-radius: 999px;
-  background: #1f1f1f;
-  color: #9da3ae;
-  text-transform: uppercase;
-  letter-spacing: .04em;
-}
-
-/* Limpia el texto del badge */
-pre.language-bash::before { content: "BASH"; }
-pre.language-js::before { content: "JS"; }
-pre.language-javascript::before { content: "JAVASCRIPT"; }
-pre.language-python::before { content: "PYTHON"; }
-pre.language-html::before { content: "HTML"; }
-pre.language-css::before { content: "CSS"; }
-pre.language-json::before { content: "JSON"; }
-pre.language-powershell::before { content: "powershell"; }
-pre.language-cmd::before { content: "cmd"; }
-
 div.code-toolbar > .toolbar button {
-  background: #1f1f1f;
-  color: #e6e6e6;
+  background: #545454;
+  color: #ffffff;
   border: none;
   border-radius: 6px;
   padding: 4px 10px;
@@ -348,6 +313,38 @@ div.code-toolbar > .toolbar button {
 div.code-toolbar > .toolbar button:hover {
   background: #2a2a2a;
 }
+
+
+/* =========================================
+   LANGUAGE BADGE
+   ========================================= */
+
+pre:has(code[class*="language-"])::before {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #607ec5;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  pointer-events: none;
+}
+
+/* Lenguajes soportados */
+pre:has(code.language-bash)::before        { content: "BASH"; }
+pre:has(code.language-js)::before          { content: "JS"; }
+pre:has(code.language-javascript)::before  { content: "JAVASCRIPT"; }
+pre:has(code.language-python)::before      { content: "PYTHON"; }
+pre:has(code.language-html)::before        { content: "HTML"; }
+pre:has(code.language-css)::before         { content: "CSS"; }
+pre:has(code.language-json)::before        { content: "JSON"; }
+pre:has(code.language-powershell)::before  { content: "POWERSHELL"; }
+pre:has(code.language-cmd)::before         { content: "CMD"; }
+
+
 
 /* =========================================
    HORIZONTAL RULE (---)
@@ -408,7 +405,7 @@ hr {
    ========================================= */
 
 .toc {
-  background: #0f0f0f;
+  background: #171717e1;
   border: 1px solid #1f1f1f;
   border-radius: 10px;
   padding: 1rem;
