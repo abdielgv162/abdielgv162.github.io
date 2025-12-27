@@ -1,5 +1,10 @@
 ---
-layout: home
-title: "Portafolio"
+layout: sections
+title: Inicio
 ---
-Portafolio
+
+dfsdf
+sdf
+sd
+f
+sdasd

@@ -1,5 +1,10 @@
 ---
-layout: home
+layout: sections
 title: Blog
 ---
-Blog
+fdsfsdf
+
+fsd
+fdsf
+sdf
+d

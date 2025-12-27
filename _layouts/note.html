@@ -1,0 +1,21 @@
+---
+layout: default
+---
+
+
+
+
+<article class="post-container">
+  <h1 class="post-title">{{ page.title }}</h1>
+
+  <nav id="toc" class="toc">
+    <p class="toc-title">Contenido</p>
+    <ul></ul>
+  </nav>
+
+  <div class="post-body">
+    {{ content }}
+  </div>
+
+  {% include related.html %}
+</article>

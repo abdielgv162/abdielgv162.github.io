@@ -1,0 +1,13 @@
+{% if page.related %}
+<section class="related-posts">
+  <h2>Relacionado</h2>
+  <ul>
+    {% for slug in page.related %}
+      {% assign related_post = site.pages | where: "slug", slug | first %}
+      {% if related_post %}
+      <li><a href="{{ related_post.url | relative_url }}">{{ related_post.title }}</a></li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}

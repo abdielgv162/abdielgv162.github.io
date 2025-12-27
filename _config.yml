@@ -1,42 +1,9 @@
-title: "Mi biblioteca digital"
-description: "Documentación y portafolio personal"
-baseurl: ""
-url: "https://abdielgv162.github.io"
-
-# Información personal
-author:
-  name: "Abdiel Guerrero V."
-  email: "jabdi16@outlook.es"
-  twitter: ""
-  github: "github.com/abdielgv162/"
-
-
-# Tema base
-#theme: jekyll-theme-cayman
-
-
-# Configuración de sintaxis
+title: "Mi Blog"
+description: "Notas, ideas y artículos"
 markdown: kramdown
-highlighter: rouge
-kramdown:
-  input: GFM
-  syntax_highlighter: rouge
-  syntax_highlighter_opts:
-    css_class: 'highlight'
-    default_lang: 'text'
+theme: null
+collections:
+  posts:
+    output: true
 
-# Sass configuration
-sass:
-  sass_dir: assets/css
-
-# Incluir CSS personalizado
-include:
-  - assets/css
-
-# Plugins
-plugins:
-  - jekyll-feed
-  - jekyll-seo-tag
-
-# Información personal
-github_username: abdielgv162
+highlighter: none

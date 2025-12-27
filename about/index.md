@@ -1,5 +1,6 @@
 ---
-layout: home
-title: "About"
+layout: sections
+title: Blog
 ---
-Oli
+
+fdsfd
